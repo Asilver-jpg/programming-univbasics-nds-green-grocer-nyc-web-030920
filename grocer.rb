@@ -66,7 +66,7 @@ def checkout(cart, coupons)
   ap_coupons_cart = apply_coupons(consol_cart)
   clear_cart= apply_clearance(ap_coupons_cart)
   price= 0 
-  clear.each do |item|
+  clear_cart.each do |item|
     price += (item[:price] * item[:count])
   end
   if price > 100
