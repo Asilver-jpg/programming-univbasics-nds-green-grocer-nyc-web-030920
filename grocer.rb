@@ -20,7 +20,7 @@ def consolidate_cart(cart)
     end
  end
  end
-pp arr
+binding.pry
  return arr
 end
 
