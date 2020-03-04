@@ -38,11 +38,12 @@ def apply_coupons(cart, coupons)
           :clearance => cart_item[:clearance],
           :count => cart_item[:count]
       }
+       binding.pry
       arr << to_Add
     end
     
   end
-  binding.pry
+ 
   arr
 end
 
