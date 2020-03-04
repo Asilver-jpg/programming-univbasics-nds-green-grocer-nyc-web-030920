@@ -27,15 +27,18 @@ pp arr
 end
 
 def apply_coupons(cart, coupons)
-  arr=[]
+  arr=cart
   coupons.each do |coupon|
     if find_item_by_name_in_collection(coupon[:item],cart)
+      cart_item = find_item_by_name_in_collection(coupon[:item], cart)
       binding.pry
       to_Add = {
-          :item = coupon[:item]+ "W/COUPON"
-          
+          :item => coupon[:item]+ " W/COUPON",
+          :price => (coupon[:cost]/ coupon[:num]).round(2),
+          :clearance => cart_item[:clearance],
+          :count => cart_item[:count]
       }
-      
+      arr << to_Add
     end
     
   end
