@@ -31,7 +31,7 @@ def apply_coupons(cart, coupons)
   coupons.each do |coupon|
     if find_item_by_name_in_collection(coupon[:item],cart)
       cart_item = find_item_by_name_in_collection(coupon[:item], cart)
-     
+     if(cart_item[:count] >= coupon[:num])
       to_Add = {
           :item => coupon[:item]+ " W/COUPON",
           :price => (coupon[:cost]/ coupon[:num]).round(2),
@@ -40,6 +40,7 @@ def apply_coupons(cart, coupons)
       }
       cart_item[:count] = cart_item[:count] - coupon[:num]
       arr << to_Add
+    end
     end
     
   end
