@@ -52,7 +52,7 @@ def apply_clearance(cart)
  car.each do |item|
    if item[:clearance] ==true
     
-     #item[:price] = (item[:price] * .8).round(2)
+     item[:price] = (item[:price] * 0.8).round(2)
      arr << item
     else
       arr << item
@@ -70,7 +70,7 @@ def checkout(cart, coupons)
     price += (item[:price] * item[:count])
   end
   if price > 100
-   # price = (price *.9).round(2)
+    price = (price *0.9).round(2)
   end
   price
   # Consult README for inputs and outputs
