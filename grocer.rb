@@ -29,15 +29,15 @@ end
 def apply_coupons(cart, coupons)
   arr=[]
   coupons.each do |coupon|
-    cart.each do |item|
-      if item[:item] == coupon[:item]
-        coupon[:item]= coupon[:item]+"W/COUPON"
-        coupon[:price] = coupon[:price]/ coupon[:count]
-        item << coupon
-        arr << item
-        next
-      end
+    if find_item_by_name_in_collection(coupon[:item],cart)
+      binding.pry
+      to_Add = {
+          :item = coupon[:item]+ "W/COUPON"
+          
+      }
+      
     end
+    
   end
   arr
 end
