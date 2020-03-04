@@ -36,9 +36,9 @@ def apply_coupons(cart, coupons)
           :item => coupon[:item]+ " W/COUPON",
           :price => (coupon[:cost]/ coupon[:num]).round(2),
           :clearance => cart_item[:clearance],
-          :count => cart_item[:count]
+          :count => coupon[:num]
       }
-      cart_item
+      cart_item[:count] = cart_item[:count] - coupon[:num]
       arr << to_Add
     end
     
