@@ -1,29 +1,73 @@
 def find_item_by_name_in_collection(name, collection)
-  # Implement me first!
-  #
-  # Consult README for inputs and outputs
+
+  collection.each do |ele|
+    if ele[:item] == name
+      return ele
+  end
+end
+return nil
 end
 
 def consolidate_cart(cart)
-  # Consult README for inputs and outputs
-  #
-  # REMEMBER: This returns a new Array that represents the cart. Don't merely
-  # change `cart` (i.e. mutate) it. It's easier to return a new thing.
+ arr=[]
+ cart.each do |ele|
+   arr.each do |item|
+    if item[:item]== ele[:item]
+    
+      item[:count] +=1
+      arr << item
+    else
+      ele[:count] =1
+      arr << ele
+    end
+ end
+ end
+pp arr
+ return arr
 end
 
 def apply_coupons(cart, coupons)
-  # Consult README for inputs and outputs
-  #
-  # REMEMBER: This method **should** update cart
+  arr=[]
+  coupons.each do |coupon|
+    cart.each do |item|
+      if item[:item] == coupon[:item]
+        coupon[:item]= coupon[:item]+"W/COUPON"
+        coupon[:price] = coupon[:price]/ coupon[:count]
+        item << coupon
+        arr << item
+        next
+      end
+    end
+  end
+  arr
 end
 
 def apply_clearance(cart)
-  # Consult README for inputs and outputs
-  #
-  # REMEMBER: This method **should** update cart
+  arr=[]
+ car.each do |item|
+   if item[:clearance] ==true
+    
+     #item[:price] = (item[:price] * .8).round(2)
+     arr << item
+    else
+      arr << item
+   end
+ end
+ arr
 end
 
 def checkout(cart, coupons)
+  consol_cart= consolidate_cart(cart)
+  ap_coupons_cart = apply_coupons(consol_cart)
+  clear_cart= apply_clearance(ap_coupons_cart)
+  price= 0 
+  clear.each do |item|
+    price += (item[:price] * item[:count])
+  end
+  if price > 100
+   # price = (price *.9).round(2)
+  end
+  price
   # Consult README for inputs and outputs
   #
   # This method should call
