@@ -14,7 +14,7 @@ def consolidate_cart(cart)
  cart.each do |ele|
     if find_item_by_name_in_collection(ele[:title], arr)
       binding.pry
-    
+       find_item_by_name_in_collection(ele[:title], arr)[:count] +=1
     else
       ele[:count] =1
       arr << ele
