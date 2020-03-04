@@ -72,6 +72,6 @@ def checkout(cart, coupons)
   if price > 100
     price = (price *0.9).round(2)
   end
-  binding.pry
+
   price
 end
