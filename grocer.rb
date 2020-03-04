@@ -72,14 +72,6 @@ def checkout(cart, coupons)
   if price > 100
     price = (price *0.9).round(2)
   end
+  binding.pry
   price
-  # Consult README for inputs and outputs
-  #
-  # This method should call
-  # * consolidate_cart
-  # * apply_coupons
-  # * apply_clearance
-  #
-  # BEFORE it begins the work of calculating the total (or else you might have
-  # some irritated customers
 end
