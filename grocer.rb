@@ -12,6 +12,7 @@ end
 def consolidate_cart(cart)
  arr=[]
  cart.each do |ele|
+   binding.pry
     if find_item_by_name_in_collection(ele[:title], arr)
       binding.pry
        find_item_by_name_in_collection(ele[:title], arr)[:count] +=1
